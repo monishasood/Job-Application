@@ -21,8 +21,6 @@
 }
 html, body { height: 100%; overflow: hidden; }
 body { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; background: var(--paper); color: var(--ink); display: flex; flex-direction: column; font-size: 14px; }
-
-/* TOPBAR */
 .topbar { background: var(--white); border-bottom: 1px solid var(--rule); padding: 0 24px; height: 52px; display: flex; align-items: center; justify-content: space-between; flex-shrink: 0; box-shadow: var(--shadow-sm); z-index: 10; }
 .brand { display: flex; align-items: center; gap: 12px; }
 .brand-mark { width: 30px; height: 30px; background: var(--ink); border-radius: 7px; display: flex; align-items: center; justify-content: center; font-size: 14px; flex-shrink: 0; }
@@ -33,8 +31,6 @@ body { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; background: var(
 .live-badge { display: flex; align-items: center; gap: 5px; padding: 4px 10px; background: var(--accent-light); border-radius: 20px; font-size: 11px; font-weight: 600; color: var(--accent); }
 .live-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent-mid); animation: pulse 2.5s ease-in-out infinite; }
 @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.5;transform:scale(.85)} }
-
-/* BUTTONS */
 .btn { display: inline-flex; align-items: center; gap: 6px; padding: 7px 14px; border-radius: var(--r-sm); border: none; cursor: pointer; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 13px; font-weight: 600; line-height: 1; transition: all .15s; white-space: nowrap; }
 .btn:disabled { opacity: .45; cursor: not-allowed; transform: none !important; }
 .btn-primary { background: var(--ink); color: white; }
@@ -47,11 +43,7 @@ body { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; background: var(
 .btn-ghost:hover { background: var(--off-white); color: var(--ink); }
 .btn-sm { padding: 5px 10px; font-size: 12px; }
 .btn-lg { padding: 10px 18px; font-size: 13px; }
-
-/* LAYOUT */
 .workspace { display: grid; grid-template-columns: 340px 1fr; flex: 1; min-height: 0; }
-
-/* LEFT PANEL */
 .left-panel { background: var(--white); border-right: 1px solid var(--rule); display: flex; flex-direction: column; min-height: 0; overflow: hidden; }
 .panel-head { padding: 14px 18px 12px; border-bottom: 1px solid var(--rule); flex-shrink: 0; }
 .panel-head-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; }
@@ -67,8 +59,6 @@ body { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; background: var(
 .fpill { padding: 4px 10px; border-radius: 20px; border: 1px solid var(--rule); background: transparent; color: var(--ink-3); font-size: 11px; font-weight: 500; cursor: pointer; font-family: 'Plus Jakarta Sans', sans-serif; transition: all .12s; white-space: nowrap; }
 .fpill:hover { border-color: var(--ink-3); color: var(--ink); }
 .fpill.on { background: var(--ink); border-color: var(--ink); color: white; }
-
-/* JOB LIST — KEY: overflow-y here */
 .job-list { flex: 1; overflow-y: auto; min-height: 0; scrollbar-width: thin; scrollbar-color: var(--ink-6) transparent; }
 .job-item { padding: 13px 18px; border-bottom: 1px solid var(--rule); cursor: pointer; transition: background .1s; border-left: 3px solid transparent; }
 .job-item:hover { background: var(--off-white); }
@@ -85,31 +75,21 @@ body { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; background: var(
 .p-nosponsor { background: var(--red-light); color: var(--red); }
 .p-match { background: var(--off-white); color: var(--ink-3); border: 1px solid var(--rule); }
 .p-tag { background: var(--off-white); color: var(--ink-4); border: 1px solid var(--rule); }
-
-/* RIGHT PANEL */
 .right-panel { display: flex; flex-direction: column; min-height: 0; overflow: hidden; background: var(--paper); }
 .tab-bar { background: var(--white); border-bottom: 1px solid var(--rule); padding: 0 24px; display: flex; align-items: center; flex-shrink: 0; }
 .tab { padding: 15px 4px; margin-right: 22px; font-size: 13px; font-weight: 500; color: var(--ink-3); cursor: pointer; border-bottom: 2px solid transparent; transition: all .15s; white-space: nowrap; }
 .tab:hover { color: var(--ink); }
 .tab.active { color: var(--ink); font-weight: 700; border-bottom-color: var(--ink); }
-
-/* CONTENT — scrollable */
 .content { flex: 1; overflow-y: auto; min-height: 0; scrollbar-width: thin; scrollbar-color: var(--ink-6) transparent; }
 .tab-pane { display: none; }
 .tab-pane.active { display: block; }
-
-/* ACTION BAR — always visible */
 .action-bar { background: var(--white); border-top: 1px solid var(--rule); padding: 12px 24px; display: flex; align-items: center; gap: 10px; flex-shrink: 0; box-shadow: 0 -2px 8px rgba(0,0,0,.04); }
 .action-hint { font-size: 12px; color: var(--ink-4); }
 .action-spacer { flex: 1; }
-
-/* EMPTY STATE */
 .empty { display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 360px; gap: 10px; padding: 40px; }
 .empty-icon { font-size: 32px; opacity: .18; }
 .empty-title { font-size: 15px; font-weight: 600; color: var(--ink-3); }
 .empty-sub { font-size: 13px; color: var(--ink-4); text-align: center; line-height: 1.55; max-width: 380px; }
-
-/* DETAIL */
 .detail-wrap { padding: 24px 28px; max-width: 820px; }
 .eyebrow { font-family: 'JetBrains Mono', monospace; font-size: 10px; font-weight: 500; color: var(--ink-4); letter-spacing: .8px; text-transform: uppercase; margin-bottom: 8px; }
 .detail-title { font-family: 'Instrument Serif', serif; font-size: 24px; color: var(--ink); line-height: 1.2; letter-spacing: -.3px; margin-bottom: 5px; }
@@ -129,8 +109,6 @@ body { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; background: var(
 .req-list { list-style: none; }
 .req-list li { display: flex; gap: 10px; align-items: flex-start; padding: 4px 0; font-size: 13px; color: var(--ink-2); line-height: 1.5; }
 .req-list li::before { content: "–"; color: var(--ink-4); flex-shrink: 0; }
-
-/* CV / COVER OUTPUT */
 .output-wrap { padding: 24px 28px; max-width: 820px; }
 .output-head { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 18px; gap: 12px; }
 .output-title { font-family: 'Instrument Serif', serif; font-size: 20px; color: var(--ink); margin-bottom: 3px; }
@@ -146,8 +124,6 @@ body { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; background: var(
 @keyframes spin { to { transform: rotate(360deg); } }
 .cursor { display: inline-block; width: 2px; height: 12px; background: var(--ink-3); margin-left: 1px; vertical-align: text-bottom; animation: blink .65s step-end infinite; }
 @keyframes blink { 50% { opacity: 0; } }
-
-/* MY CV TAB */
 .mycv-wrap { padding: 24px 28px; max-width: 820px; }
 .mycv-title { font-family: 'Instrument Serif', serif; font-size: 22px; color: var(--ink); margin-bottom: 6px; }
 .mycv-sub { font-size: 13px; color: var(--ink-3); line-height: 1.6; margin-bottom: 22px; }
@@ -160,8 +136,6 @@ body { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; background: var(
 .mycv-note-icon { flex-shrink: 0; margin-top: 1px; }
 .save-indicator { font-size: 11px; color: var(--accent); font-weight: 600; display: none; }
 .save-indicator.show { display: inline; }
-
-/* SETUP */
 .setup-wrap { padding: 24px 28px; max-width: 680px; }
 .setup-title { font-family: 'Instrument Serif', serif; font-size: 22px; color: var(--ink); margin-bottom: 5px; }
 .setup-sub { font-size: 13px; color: var(--ink-3); line-height: 1.6; margin-bottom: 24px; }
@@ -185,11 +159,8 @@ body { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; background: var(
 .step-num { width: 20px; height: 20px; background: var(--ink); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 700; flex-shrink: 0; margin-top: 2px; }
 .step-text { font-size: 13px; color: var(--ink-2); line-height: 1.55; }
 .step-text strong { color: var(--ink); font-weight: 600; }
-
-/* LIST LOADING */
 .list-loading { display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 50px 20px; gap: 10px; }
 .list-loading-text { font-size: 13px; color: var(--ink-4); }
-
 ::-webkit-scrollbar { width: 4px; height: 4px; }
 ::-webkit-scrollbar-track { background: transparent; }
 ::-webkit-scrollbar-thumb { background: var(--ink-6); border-radius: 2px; }
@@ -197,8 +168,6 @@ body { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; background: var(
 </style>
 </head>
 <body>
-
-<!-- TOPBAR -->
 <header class="topbar">
   <div class="brand">
     <div class="brand-mark">🎯</div>
@@ -211,11 +180,7 @@ body { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; background: var(
     <button class="btn btn-secondary btn-sm" onclick="refreshJobs()">↻ Refresh</button>
   </div>
 </header>
-
-<!-- WORKSPACE -->
 <div class="workspace">
-
-  <!-- LEFT -->
   <aside class="left-panel">
     <div class="panel-head">
       <div class="panel-head-top">
@@ -244,8 +209,6 @@ body { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; background: var(
       </div>
     </div>
   </aside>
-
-  <!-- RIGHT -->
   <main class="right-panel">
     <nav class="tab-bar">
       <div class="tab active" data-tab="detail" onclick="switchTab('detail',this)">Job Details</div>
@@ -254,10 +217,7 @@ body { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; background: var(
       <div class="tab" data-tab="mycv" onclick="switchTab('mycv',this)">My CV ✏️</div>
       <div class="tab" data-tab="setup" onclick="switchTab('setup',this)">⚡ Setup</div>
     </nav>
-
     <div class="content">
-
-      <!-- DETAIL PANE -->
       <div class="tab-pane active" id="pane-detail">
         <div class="empty" id="detail-empty">
           <div class="empty-icon">←</div>
@@ -266,33 +226,26 @@ body { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; background: var(
         </div>
         <div class="detail-wrap" id="detail-content" style="display:none"></div>
       </div>
-
-      <!-- CV PANE -->
       <div class="tab-pane" id="pane-cv">
         <div class="empty" id="cv-empty">
           <div class="empty-icon">📄</div>
           <div class="empty-title">No CV generated yet</div>
-          <div class="empty-sub">Select a role from the left, then click <strong>Generate CV</strong> below to get a tailored, ATS-optimised resume in under 30 seconds.</div>
+          <div class="empty-sub">Select a role from the left, then click <strong>Generate CV</strong> below.</div>
         </div>
         <div class="output-wrap" id="cv-content" style="display:none"></div>
       </div>
-
-      <!-- COVER PANE -->
       <div class="tab-pane" id="pane-cover">
         <div class="empty" id="cover-empty">
           <div class="empty-icon">✉️</div>
           <div class="empty-title">No cover letter yet</div>
-          <div class="empty-sub">Select a role, then click <strong>Generate Cover Letter</strong> below to get a tailored letter in your voice.</div>
+          <div class="empty-sub">Select a role, then click <strong>Generate Cover Letter</strong> below.</div>
         </div>
         <div class="output-wrap" id="cover-content" style="display:none"></div>
       </div>
-
-      <!-- MY CV PANE -->
       <div class="tab-pane" id="pane-mycv">
         <div class="mycv-wrap">
           <div class="mycv-title">My Base CV</div>
           <div class="mycv-sub">Paste your current resume here. When you generate a tailored CV, the AI will edit this exact document — keeping your words and structure, and adapting it for the selected role.</div>
-
           <div class="mycv-box">
             <div class="mycv-box-head">
               <div class="mycv-box-lbl">Your Resume (plain text)</div>
@@ -302,37 +255,18 @@ body { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; background: var(
                 <button class="btn btn-primary btn-sm" onclick="saveCV()">Save CV</button>
               </div>
             </div>
-            <textarea class="cv-textarea" id="cv-textarea" placeholder="Paste your resume here in plain text…
-
-Example:
-MONISHA SOOD
-Product Manager | New York, NY
-
-EXPERIENCE
-
-SecondWind Pro — Product Manager
-Jan 2023 – Present
-• Built zero-to-one NIL analytics platform for D1 athletes
-• Onboarded 500+ athletes across 40% of partner schools
-...
-
-(The AI will edit this document when you generate a tailored CV for a role)"
-              oninput="autosaveCV()"></textarea>
+            <textarea class="cv-textarea" id="cv-textarea" placeholder="Paste your resume here in plain text…" oninput="autosaveCV()"></textarea>
           </div>
-
           <div class="mycv-note">
             <span class="mycv-note-icon">ℹ️</span>
-            <span>Your CV is saved in your browser's local storage. It stays here between sessions. When you generate a tailored CV for a role, the AI edits <em>this document</em> — not a generic template — so your real voice and formatting is preserved.</span>
+            <span>Your CV is saved in your browser's local storage. It stays here between sessions.</span>
           </div>
         </div>
       </div>
-
-      <!-- SETUP PANE -->
       <div class="tab-pane" id="pane-setup">
         <div class="setup-wrap">
           <div class="setup-title">Automation Setup</div>
           <div class="setup-sub">Your end-to-end system for being the first applicant on every PM role that matches your profile.</div>
-
           <div class="setup-sec">
             <div class="setup-sec-title">How it works</div>
             <div class="cfg-table">
@@ -343,7 +277,6 @@ Jan 2023 – Present
               <div class="step-row"><div class="step-num">5</div><div class="step-text"><strong>Apply immediately</strong> — most candidates haven't seen the posting yet</div></div>
             </div>
           </div>
-
           <div class="setup-sec">
             <div class="setup-sec-title">Search filters</div>
             <div class="cfg-table">
@@ -355,7 +288,6 @@ Jan 2023 – Present
               <div class="cfg-row"><div class="cfg-key">Check frequency</div><div class="cfg-val">Every 30 min</div></div>
             </div>
           </div>
-
           <div class="setup-sec">
             <div class="setup-sec-title">Alerts</div>
             <div class="cfg-table">
@@ -364,7 +296,6 @@ Jan 2023 – Present
               <div class="cfg-row"><div class="cfg-key">Priority alert for 90%+ matches</div><div class="toggle on" onclick="this.classList.toggle('on')"></div></div>
             </div>
           </div>
-
           <div class="setup-sec">
             <div class="setup-sec-title">Job boards</div>
             <div class="cfg-table">
@@ -374,7 +305,6 @@ Jan 2023 – Present
               <div class="cfg-row"><div class="cfg-key">Wellfound</div><div class="cfg-right"><div class="dot-amber"></div><div class="cfg-val">Manual</div><div class="toggle" onclick="this.classList.toggle('on')"></div></div></div>
             </div>
           </div>
-
           <div class="setup-sec">
             <div class="setup-sec-title">Anthropic API Key</div>
             <div class="cfg-table">
@@ -389,14 +319,10 @@ Jan 2023 – Present
             </div>
             <div style="font-size:12px;color:var(--ink-4);margin-top:8px;line-height:1.5">Your key is stored in your browser only. Get one at <a href="https://console.anthropic.com/keys" target="_blank" style="color:var(--accent)">console.anthropic.com/keys</a>.</div>
           </div>
-
           <button class="btn btn-primary btn-lg" style="width:100%;justify-content:center" onclick="saveSetup(this)">Save &amp; Activate</button>
         </div>
       </div>
-
-    </div><!-- /content -->
-
-    <!-- ACTION BAR — always visible -->
+    </div>
     <div class="action-bar" id="action-bar">
       <button class="btn btn-accent btn-lg" id="btn-cv" onclick="generateCV()">✨ Generate CV</button>
       <button class="btn btn-secondary btn-lg" id="btn-cover" onclick="generateCover()">✉️ Cover Letter</button>
@@ -405,184 +331,108 @@ Jan 2023 – Present
       <button class="btn btn-ghost" id="btn-apply" onclick="applyNow()" style="display:none">Apply now →</button>
     </div>
   </main>
-
 </div>
-
 <script>
-// ── FALLBACK PROFILE (used if no CV pasted) ───────────────────────────────
 const FALLBACK_PROFILE = `MONISHA SOOD
 Product Manager | New York, NY (relocating)
 OPT status — H-1B sponsorship required
-
 EXPERIENCE
-
 SecondWind Pro — Product Manager (NIL Analytics Platform)
 2023 – Present
-• Built zero-to-one AI-powered analytics platform for Division 1 athletes
-• Onboarded 500+ D1 athletes; achieved 40% partner school adoption rate
-• Led full product lifecycle: discovery, roadmap, design, and go-to-market
-
+- Built zero-to-one AI-powered analytics platform for Division 1 athletes
+- Onboarded 500+ D1 athletes; achieved 40% partner school adoption rate
+- Led full product lifecycle: discovery, roadmap, design, and go-to-market
 Flyhomes — Operations Associate to Product Strategy Lead
 2020 – 2023
-• Delivered $48M in cost savings through process and product automation
-• Improved customer CSAT by 32% through product-led service improvements
-• Reduced manual effort by 70% via internal workflow tooling
-• Supported $500K+ in fundraising with strategic product narratives
-
+- Delivered $48M in cost savings through process and product automation
+- Improved customer CSAT by 32% through product-led service improvements
+- Reduced manual effort by 70% via internal workflow tooling
+- Supported $500K+ in fundraising with strategic product narratives
 Flexera — MBA Capstone: AI Win/Loss Analytics Dashboard
 2025 – 2026
-• Led 12 stakeholder interviews across Sales, RevOps, and Marketing
-• Prototyped full dashboard in Figma; built predictive modeling framework
-• Presented to C-suite; validated with 12 internal Flexera employees
-
+- Led 12 stakeholder interviews across Sales, RevOps, and Marketing
+- Prototyped full dashboard in Figma; built predictive modeling framework
+- Presented to C-suite; validated with 12 internal Flexera employees
 SKILLS
 Product strategy · Zero-to-one launches · Data analytics · AI/ML product thinking · Figma · JIRA · SQL · Agile · Cross-functional leadership · B2B SaaS · Platform business models · NIL/sports tech · Fintech
-
 EDUCATION
 MBA, Technology Strategy & Product Management
 Wisconsin School of Business — May 2026
-
 PROJECTS
 FreshPlate — AI food management platform (Anthropic API)
 AI Trend Radar — Real-time social trend detection for content creators`;
 
-// ── JOBS DATA ─────────────────────────────────────────────────────────────
 const JOBS = [
   { id:1, title:"Product Manager – AI", company:"Tachyon Technologies", location:"Chicago, IL", posted:"Today", salary:null, isNew:true, isRemote:false, sponsors:null, isAI:true, url:"https://www.dice.com/job-detail/79d25676-7255-4711-a60e-a4a6e72dafdd", tags:["AI","Generative AI","Agentic"], matchScore:92, matchSkills:["AI/ML Products","Zero-to-one","Roadmap ownership","Cross-functional"], description:"Own one product end-to-end within a growing AI platform — conversational assistants, agentic workflows, knowledge retrieval, or content creation. Lead the full product lifecycle from discovery through delivery.", requirements:["5+ years PM experience","Generative or agentic AI product experience","Strong roadmap and prioritisation skills","Comfortable working cross-functionally at pace","Excellent written and verbal communication"] },
-  { id:2, title:"Senior PM – AI Data Infrastructure", company:"NetApp", location:"San Jose, CA", posted:"Today", salary:null, isNew:true, isRemote:false, sponsors:true, isAI:true, url:"https://www.dice.com/direct-apply/b5194b07-293e-416c-9b61-e163268e3a37", tags:["AI","Data","Enterprise","Storage"], matchScore:83, matchSkills:["Data analytics","Enterprise SaaS","AI/ML","Stakeholder mgmt"], description:"Own the AI data infrastructure product roadmap at NetApp. Deliver unified storage and data services that help enterprises unlock AI and multicloud potential. Collaborate with engineering and data science teams.", requirements:["5+ years PM in data or infrastructure","AI/ML product background preferred","Enterprise storage or cloud experience","Data-driven analytical mindset","Ability to translate technical concepts for business audiences"] },
+  { id:2, title:"Senior PM – AI Data Infrastructure", company:"NetApp", location:"San Jose, CA", posted:"Today", salary:null, isNew:true, isRemote:false, sponsors:true, isAI:true, url:"https://www.dice.com/direct-apply/b5194b07-293e-416c-9b61-e163268e3a37", tags:["AI","Data","Enterprise","Storage"], matchScore:83, matchSkills:["Data analytics","Enterprise SaaS","AI/ML","Stakeholder mgmt"], description:"Own the AI data infrastructure product roadmap at NetApp. Deliver unified storage and data services that help enterprises unlock AI and multicloud potential.", requirements:["5+ years PM in data or infrastructure","AI/ML product background preferred","Enterprise storage or cloud experience","Data-driven analytical mindset","Ability to translate technical concepts for business audiences"] },
   { id:3, title:"Senior PM – AI Enablement", company:"Bullish (CoinDesk)", location:"New York, NY", posted:"Yesterday", salary:"$205K – $270K", isNew:false, isRemote:false, sponsors:false, isAI:true, url:"https://www.dice.com/job-detail/2f2b34c2-0e87-4212-9f01-aeec2be893ed", tags:["AI","Fintech","NYC"], matchScore:74, matchSkills:["AI products","Fintech","Analytics","B2B"], description:"Lead AI enablement products at Bullish, an institutionally focused global digital asset platform. Own the roadmap for AI capabilities that improve information services and exchange workflows.", requirements:["4+ years PM experience","AI product background","Fintech or financial services preferred","Strong stakeholder skills","NYC-based or willing to relocate"] },
   { id:4, title:"AI Product Manager (Consultant)", company:"Dell Technologies", location:"Seattle, WA", posted:"Yesterday", salary:"$167K – $238K", isNew:false, isRemote:false, sponsors:true, isAI:true, url:"https://www.dice.com/job-detail/ebc2c354-c08d-44ed-bd99-2a65b9e1a60e", tags:["AI","Enterprise","Direct Hire"], matchScore:80, matchSkills:["AI/ML products","Enterprise","Business outcomes","Cross-functional"], description:"Develop and deploy AI solutions for Dell's internal teams. Lead AI product strategy with obsession over measurable business value and customer experience impact.", requirements:["5+ years PM or solutions consulting","Deep enterprise AI use case knowledge","Strong business outcome framing","Stakeholder alignment at scale","Comfortable with ambiguity"] },
   { id:5, title:"Principal PM – Customer Identity", company:"Disney Entertainment & ESPN Technology", location:"New York, NY", posted:"Today", salary:"In description", isNew:true, isRemote:false, sponsors:false, isAI:false, url:"https://www.dice.com/direct-apply/067660b0-5aea-41bd-be25-32c145c66c09", tags:["Identity","Platform","Consumer","Media"], matchScore:76, matchSkills:["Platform PM","B2C","Cross-functional","Data"], description:"Build the identity and authentication platform powering Disney, Hulu, ESPN, and Disney+. Own product direction for customer account management, login, and personalisation at global scale.", requirements:["7+ years PM experience","Identity or account platform background preferred","Consumer product at scale","Strong technical and cross-functional skills","Ability to influence without authority"] },
   { id:6, title:"Senior PM – Licensing & AI Systems", company:"Disney Experiences", location:"Orlando, FL", posted:"Today", salary:null, isNew:true, isRemote:false, sponsors:false, isAI:true, url:"https://www.dice.com/direct-apply/8bc616c5-9df7-44c7-a350-5064ac45d7aa", tags:["AI","Licensing","Project Hire"], matchScore:69, matchSkills:["AI products","Process automation","Stakeholder mgmt"], description:"2.5-year project hire. Own licensing product approval systems and AI tooling for Walt Disney World and other resort brands.", requirements:["4+ years PM experience","AI or ML systems background preferred","Licensing or content management a plus","Process and workflow design skills","Comfort with large matrixed organisations"] },
-  { id:7, title:"Lead PM – Data & AI Integration", company:"Walt Disney Company (Corporate)", location:"Orlando, FL", posted:"Today", salary:null, isNew:true, isRemote:false, sponsors:false, isAI:true, url:"https://www.dice.com/direct-apply/957c8bb9-599e-4c6d-8320-7d02b2bec26c", tags:["AI","Data","VMO","Project Hire"], matchScore:71, matchSkills:["AI/data products","Roadmap","Enterprise","Cross-functional"], description:"Project hire owning data and AI integration across Disney's Technology VMO. Drive adoption of AI tools and data services that improve how Disney's technology organisation delivers.", requirements:["6+ years PM or related","Data and AI integration background","Enterprise programme management","Strong stakeholder alignment","Experience in large technology organisations"] },
-  { id:8, title:"Senior PM II – Commerce, Tax & Billing", company:"Disney Entertainment & ESPN Technology", location:"New York, NY", posted:"Today", salary:"In description", isNew:true, isRemote:false, sponsors:false, isAI:false, url:"https://www.dice.com/direct-apply/a00eac6a-2c2a-4bca-800a-5178df2e2c86", tags:["Commerce","Billing","Platform","NYC"], matchScore:72, matchSkills:["Platform PM","Process automation","B2C","Data"], description:"Own the commerce, tax, and billing product stack for Disney+ and ESPN streaming. Define and deliver systems powering subscriptions and financial transactions for millions of users globally.", requirements:["5+ years PM experience","Commerce or billing product background strongly preferred","Strong analytical skills","High-scale consumer product experience","Excellent engineering partnership"] },
-  { id:9, title:"Product Manager – Product Owner / Analyst", company:"SES", location:"Washington, DC (Hybrid)", posted:"3 days ago", salary:"DOE", isNew:false, isRemote:false, sponsors:false, isAI:false, url:"https://www.dice.com/job-detail/6eec061f-fd76-4597-9138-bf98e32d22f9", tags:["Hybrid","Easy Apply","Direct Hire"], matchScore:65, matchSkills:["Roadmap","Agile","Stakeholder mgmt","Spec-driven dev"], description:"Define and prioritise product direction for a delivery team practicing spec-driven development. Bridge business goals, user needs, technical feasibility, and delivery execution.", requirements:["3+ years PM or PO experience","Spec-driven or agile development background","Strong business analysis skills","Traceable, testable product spec experience","Excellent cross-team communication"] },
-  { id:10, title:"Product Manager (Healthcare Software)", company:"Robert Half", location:"Saint Paul, MN", posted:"3 days ago", salary:"$59 – $68/hr", isNew:false, isRemote:false, sponsors:false, isAI:false, url:"https://www.dice.com/job-detail/2c6d6b82-eb09-4469-9adc-c553a605c462", tags:["Healthcare","Contract-to-Perm"], matchScore:60, matchSkills:["Roadmap","Cross-functional","Market insights","Agile"], description:"Guide product direction for a growing IT software organisation. Contract-to-permanent partnering with Product Owners and engineering in healthcare software.", requirements:["3+ years PM experience","Healthcare software knowledge preferred","Market research and insight translation","Agile delivery","Minnesota-based preferred"] },
-  { id:11, title:"Product Manager – Provider Finder (Insurance)", company:"Horizontal Talent", location:"Denver, CO", posted:"3 days ago", salary:"$22 – $50/hr", isNew:false, isRemote:true, sponsors:false, isAI:false, url:"https://www.dice.com/job-detail/cbbaf47b-5af3-4950-953c-a7fe072135fc", tags:["Remote","Healthcare","Insurance","Scrum"], matchScore:63, matchSkills:["Backlog management","Sprint planning","Stakeholder mgmt","Agile"], description:"Lead a provider finder project for an insurance client. Oversee product backlog delivery with scrum teams, lead sprint planning, and facilitate communication around product vision and priorities.", requirements:["3+ years PM experience","Healthcare or insurance a plus","Scrum and agile required","Backlog management and prioritisation","Strong written and verbal communication"] },
-  { id:12, title:"Technical PM – Pricing & Packaging Analytics", company:"DIRECTV", location:"Los Angeles, CA", posted:"Today", salary:"In description", isNew:true, isRemote:false, sponsors:false, isAI:false, url:"https://www.dice.com/direct-apply/36ec9345-b5b1-4d75-b450-8c8c8f5305eb", tags:["Technical PM","Pricing","Analytics","Media"], matchScore:68, matchSkills:["Analytics","Data-driven","Stakeholder mgmt","Technical comms"], description:"Define and evolve DIRECTV's pricing and packaging analytics systems. Bridge business stakeholders and technical teams to translate goals into scalable, secure, high-performing solutions.", requirements:["5+ years technical PM","Pricing or billing analytics background preferred","Translate business requirements to engineering","Strong data skills","Media or subscription business a plus"] },
-  { id:13, title:"Product Owner / PM – Conversational AI (Voice)", company:"Everest Global Solutions", location:"Atlanta, GA (Hybrid)", posted:"Today", salary:"DOE", isNew:true, isRemote:false, sponsors:false, isAI:true, url:"https://www.dice.com/job-detail/6b98e150-75d1-4b8c-b173-7709cfba4a58", tags:["Conversational AI","Voice AI","Healthcare","Easy Apply"], matchScore:77, matchSkills:["AI products","Voice/NLP","Healthcare","Roadmap ownership"], description:"Own the product vision, roadmap, and delivery for a Conversational AI Voice platform in the healthcare payer space. Define the future of AI-powered patient and member interactions.", requirements:["8+ years PM / PO experience","4+ years Conversational or Voice AI","Healthcare domain strongly preferred","Agile and business analysis skills","AI vendor selection and integration experience"] }
+  { id:7, title:"Lead PM – Data & AI Integration", company:"Walt Disney Company (Corporate)", location:"Orlando, FL", posted:"Today", salary:null, isNew:true, isRemote:false, sponsors:false, isAI:true, url:"https://www.dice.com/direct-apply/957c8bb9-599e-4c6d-8320-7d02b2bec26c", tags:["AI","Data","VMO","Project Hire"], matchScore:71, matchSkills:["AI/data products","Roadmap","Enterprise","Cross-functional"], description:"Project hire owning data and AI integration across Disney's Technology VMO.", requirements:["6+ years PM or related","Data and AI integration background","Enterprise programme management","Strong stakeholder alignment","Experience in large technology organisations"] },
+  { id:8, title:"Senior PM II – Commerce, Tax & Billing", company:"Disney Entertainment & ESPN Technology", location:"New York, NY", posted:"Today", salary:"In description", isNew:true, isRemote:false, sponsors:false, isAI:false, url:"https://www.dice.com/direct-apply/a00eac6a-2c2a-4bca-800a-5178df2e2c86", tags:["Commerce","Billing","Platform","NYC"], matchScore:72, matchSkills:["Platform PM","Process automation","B2C","Data"], description:"Own the commerce, tax, and billing product stack for Disney+ and ESPN streaming.", requirements:["5+ years PM experience","Commerce or billing product background strongly preferred","Strong analytical skills","High-scale consumer product experience","Excellent engineering partnership"] },
+  { id:9, title:"Product Manager – Product Owner / Analyst", company:"SES", location:"Washington, DC (Hybrid)", posted:"3 days ago", salary:"DOE", isNew:false, isRemote:false, sponsors:false, isAI:false, url:"https://www.dice.com/job-detail/6eec061f-fd76-4597-9138-bf98e32d22f9", tags:["Hybrid","Easy Apply","Direct Hire"], matchScore:65, matchSkills:["Roadmap","Agile","Stakeholder mgmt","Spec-driven dev"], description:"Define and prioritise product direction for a delivery team practicing spec-driven development.", requirements:["3+ years PM or PO experience","Spec-driven or agile development background","Strong business analysis skills","Traceable, testable product spec experience","Excellent cross-team communication"] },
+  { id:10, title:"Product Manager (Healthcare Software)", company:"Robert Half", location:"Saint Paul, MN", posted:"3 days ago", salary:"$59 – $68/hr", isNew:false, isRemote:false, sponsors:false, isAI:false, url:"https://www.dice.com/job-detail/2c6d6b82-eb09-4469-9adc-c553a605c462", tags:["Healthcare","Contract-to-Perm"], matchScore:60, matchSkills:["Roadmap","Cross-functional","Market insights","Agile"], description:"Guide product direction for a growing IT software organisation.", requirements:["3+ years PM experience","Healthcare software knowledge preferred","Market research and insight translation","Agile delivery","Minnesota-based preferred"] },
+  { id:11, title:"Product Manager – Provider Finder (Insurance)", company:"Horizontal Talent", location:"Denver, CO", posted:"3 days ago", salary:"$22 – $50/hr", isNew:false, isRemote:true, sponsors:false, isAI:false, url:"https://www.dice.com/job-detail/cbbaf47b-5af3-4950-953c-a7fe072135fc", tags:["Remote","Healthcare","Insurance","Scrum"], matchScore:63, matchSkills:["Backlog management","Sprint planning","Stakeholder mgmt","Agile"], description:"Lead a provider finder project for an insurance client.", requirements:["3+ years PM experience","Healthcare or insurance a plus","Scrum and agile required","Backlog management and prioritisation","Strong written and verbal communication"] },
+  { id:12, title:"Technical PM – Pricing & Packaging Analytics", company:"DIRECTV", location:"Los Angeles, CA", posted:"Today", salary:"In description", isNew:true, isRemote:false, sponsors:false, isAI:false, url:"https://www.dice.com/direct-apply/36ec9345-b5b1-4d75-b450-8c8c8f5305eb", tags:["Technical PM","Pricing","Analytics","Media"], matchScore:68, matchSkills:["Analytics","Data-driven","Stakeholder mgmt","Technical comms"], description:"Define and evolve DIRECTV's pricing and packaging analytics systems.", requirements:["5+ years technical PM","Pricing or billing analytics background preferred","Translate business requirements to engineering","Strong data skills","Media or subscription business a plus"] },
+  { id:13, title:"Product Owner / PM – Conversational AI (Voice)", company:"Everest Global Solutions", location:"Atlanta, GA (Hybrid)", posted:"Today", salary:"DOE", isNew:true, isRemote:false, sponsors:false, isAI:true, url:"https://www.dice.com/job-detail/6b98e150-75d1-4b8c-b173-7709cfba4a58", tags:["Conversational AI","Voice AI","Healthcare","Easy Apply"], matchScore:77, matchSkills:["AI products","Voice/NLP","Healthcare","Roadmap ownership"], description:"Own the product vision, roadmap, and delivery for a Conversational AI Voice platform in the healthcare payer space.", requirements:["8+ years PM / PO experience","4+ years Conversational or Voice AI","Healthcare domain strongly preferred","Agile and business analysis skills","AI vendor selection and integration experience"] }
 ];
 
-// ── STATE ─────────────────────────────────────────────────────────────────
-let selected = null;
-let activeTab = 'detail';
-let activeFilter = 'all';
-let cvText = '';
-let coverText = '';
-let saveTimer = null;
+let selected = null, activeTab = 'detail', activeFilter = 'all', cvText = '', coverText = '', saveTimer = null;
 
-
-// ── API KEY MANAGEMENT ────────────────────────────────────────────────────
-function getApiKey() {
-  let key = localStorage.getItem('pm_radar_api_key');
-  if (!key) {
-    showApiKeyModal();
-    return null;
-  }
-  return key;
-}
-
-function showApiKeyModal() {
-  document.getElementById('api-modal').style.display = 'flex';
-}
-
+function getApiKey() { return localStorage.getItem('pm_radar_api_key') || null; }
+function showApiKeyModal() { document.getElementById('api-modal').style.display = 'flex'; }
 function saveApiKey() {
   const val = document.getElementById('api-key-input').value.trim();
-  if (!val.startsWith('sk-ant-')) {
-    document.getElementById('api-key-error').style.display = 'block';
-    return;
-  }
+  if (!val.startsWith('sk-ant-')) { document.getElementById('api-key-error').style.display = 'block'; return; }
   localStorage.setItem('pm_radar_api_key', val);
   document.getElementById('api-modal').style.display = 'none';
   document.getElementById('key-status').textContent = 'API key saved ✓';
   document.getElementById('key-status').style.color = 'var(--accent)';
 }
-
 function clearApiKey() {
   localStorage.removeItem('pm_radar_api_key');
   document.getElementById('api-key-input').value = '';
   document.getElementById('key-status').textContent = 'No key saved';
   document.getElementById('key-status').style.color = 'var(--ink-4)';
 }
-
 function checkKeyStatus() {
   const key = localStorage.getItem('pm_radar_api_key');
   const el = document.getElementById('key-status');
-  if (el) {
-    el.textContent = key ? 'API key saved ✓' : 'No key saved';
-    el.style.color = key ? 'var(--accent)' : 'var(--ink-4)';
-  }
-  if (key) {
-    document.getElementById('api-modal').style.display = 'none';
-  }
+  if (el) { el.textContent = key ? 'API key saved ✓' : 'No key saved'; el.style.color = key ? 'var(--accent)' : 'var(--ink-4)'; }
 }
-
-// ── CV STORAGE ────────────────────────────────────────────────────────────
 function loadStoredCV() {
-  try {
-    const stored = localStorage.getItem('pm_radar_cv');
-    if (stored) document.getElementById('cv-textarea').value = stored;
-  } catch(e) {}
+  try { const s = localStorage.getItem('pm_radar_cv'); if (s) document.getElementById('cv-textarea').value = s; } catch(e) {}
 }
-
 function autosaveCV() {
   clearTimeout(saveTimer);
   saveTimer = setTimeout(() => {
-    try {
-      localStorage.setItem('pm_radar_cv', document.getElementById('cv-textarea').value);
-      const ind = document.getElementById('save-indicator');
-      ind.classList.add('show');
-      setTimeout(() => ind.classList.remove('show'), 2000);
-    } catch(e) {}
+    try { localStorage.setItem('pm_radar_cv', document.getElementById('cv-textarea').value); const i = document.getElementById('save-indicator'); i.classList.add('show'); setTimeout(() => i.classList.remove('show'), 2000); } catch(e) {}
   }, 800);
 }
-
 function saveCV() {
-  try {
-    localStorage.setItem('pm_radar_cv', document.getElementById('cv-textarea').value);
-    const ind = document.getElementById('save-indicator');
-    ind.classList.add('show');
-    setTimeout(() => ind.classList.remove('show'), 2000);
-  } catch(e) {}
+  try { localStorage.setItem('pm_radar_cv', document.getElementById('cv-textarea').value); const i = document.getElementById('save-indicator'); i.classList.add('show'); setTimeout(() => i.classList.remove('show'), 2000); } catch(e) {}
 }
-
 function clearCV() {
-  if (confirm('Clear your saved CV?')) {
-    document.getElementById('cv-textarea').value = '';
-    try { localStorage.removeItem('pm_radar_cv'); } catch(e) {}
-  }
+  if (confirm('Clear your saved CV?')) { document.getElementById('cv-textarea').value = ''; try { localStorage.removeItem('pm_radar_cv'); } catch(e) {} }
 }
+function getUserCV() { return document.getElementById('cv-textarea').value.trim() || FALLBACK_PROFILE; }
 
-function getUserCV() {
-  const typed = document.getElementById('cv-textarea').value.trim();
-  return typed || FALLBACK_PROFILE;
-}
-
-// ── INIT ──────────────────────────────────────────────────────────────────
 function init() {
-  loadStoredCV();
-  checkKeyStatus();
+  loadStoredCV(); checkKeyStatus();
   setTimeout(() => {
     renderJobList(JOBS);
     document.getElementById('job-count').textContent = JOBS.length;
-    const n = JOBS.filter(j => j.isNew).length;
-    document.getElementById('new-chip').textContent = n + ' new today';
+    document.getElementById('new-chip').textContent = JOBS.filter(j => j.isNew).length + ' new today';
   }, 800);
 }
 
-// ── RENDER JOB LIST ───────────────────────────────────────────────────────
 function renderJobList(jobs) {
   const el = document.getElementById('job-list');
-  if (!jobs.length) {
-    el.innerHTML = `<div class="list-loading"><div class="list-loading-text">No roles match this filter.</div></div>`;
-    return;
-  }
+  if (!jobs.length) { el.innerHTML = `<div class="list-loading"><div class="list-loading-text">No roles match this filter.</div></div>`; return; }
   el.innerHTML = jobs.map(j => `
     <div class="job-item${selected?.id===j.id?' active':''}" id="ji-${j.id}" onclick="selectJob(${j.id})">
-      <div class="job-item-top">
-        <div class="job-item-title">${j.title}</div>
-        <div class="job-item-time">${j.posted}</div>
-      </div>
+      <div class="job-item-top"><div class="job-item-title">${j.title}</div><div class="job-item-time">${j.posted}</div></div>
       <div class="job-item-co">${j.company} · ${j.location}</div>
       <div class="job-item-pills">
         ${j.isNew?'<span class="pill p-new">NEW</span>':''}
@@ -595,26 +445,20 @@ function renderJobList(jobs) {
     </div>`).join('');
 }
 
-// ── SELECT JOB ────────────────────────────────────────────────────────────
 function selectJob(id) {
-  selected = JOBS.find(j => j.id===id);
-  cvText = ''; coverText = '';
+  selected = JOBS.find(j => j.id===id); cvText = ''; coverText = '';
   document.querySelectorAll('.job-item').forEach(el => el.classList.remove('active'));
   document.getElementById('ji-'+id)?.classList.add('active');
   renderDetail();
-  // show apply button, update hint
   document.getElementById('action-hint').style.display = 'none';
   document.getElementById('btn-apply').style.display = '';
-  // reset output panes
   document.getElementById('cv-empty').style.display = '';
   document.getElementById('cv-content').style.display = 'none';
   document.getElementById('cover-empty').style.display = '';
   document.getElementById('cover-content').style.display = 'none';
-  // switch to detail
   switchTab('detail', document.querySelector('[data-tab="detail"]'));
 }
 
-// ── RENDER DETAIL ─────────────────────────────────────────────────────────
 function renderDetail() {
   const j = selected;
   document.getElementById('detail-empty').style.display = 'none';
@@ -633,41 +477,27 @@ function renderDetail() {
       ${j.tags.map(t=>`<span class="pill p-tag">${t}</span>`).join('')}
     </div>
     <div class="match-card">
-      <div class="match-card-top">
-        <div class="match-lbl">PROFILE MATCH SCORE</div>
-        <div class="match-num">${j.matchScore}%</div>
-      </div>
+      <div class="match-card-top"><div class="match-lbl">PROFILE MATCH SCORE</div><div class="match-num">${j.matchScore}%</div></div>
       <div class="match-track"><div class="match-fill" style="width:${j.matchScore}%"></div></div>
       <div class="match-skills">${j.matchSkills.map(s=>`<span class="mskill">✓ ${s}</span>`).join('')}</div>
     </div>
-    <div class="section">
-      <div class="section-title">About the role</div>
-      <div class="section-body">${j.description}</div>
-    </div>
-    <div class="section">
-      <div class="section-title">Requirements</div>
-      <ul class="req-list">${j.requirements.map(r=>`<li>${r}</li>`).join('')}</ul>
-    </div>`;
+    <div class="section"><div class="section-title">About the role</div><div class="section-body">${j.description}</div></div>
+    <div class="section"><div class="section-title">Requirements</div><ul class="req-list">${j.requirements.map(r=>`<li>${r}</li>`).join('')}</ul></div>`;
 }
 
-// ── SWITCH TAB ────────────────────────────────────────────────────────────
 function switchTab(tab, el) {
   activeTab = tab;
   document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
   el?.classList.add('active');
   document.querySelectorAll('.tab-pane').forEach(p => p.classList.remove('active'));
   document.getElementById('pane-'+tab)?.classList.add('active');
-  // hide action bar on setup/mycv tabs
-  const bar = document.getElementById('action-bar');
-  bar.style.display = (tab==='setup'||tab==='mycv') ? 'none' : 'flex';
+  document.getElementById('action-bar').style.display = (tab==='setup'||tab==='mycv') ? 'none' : 'flex';
 }
 
-// ── GENERATE CV ───────────────────────────────────────────────────────────
 async function generateCV() {
-  if (!selected) {
-    alert('Please select a role from the left first.');
-    return;
-  }
+  if (!selected) { alert('Please select a role from the left first.'); return; }
+  const apiKey = getApiKey();
+  if (!apiKey) { showApiKeyModal(); return; }
   const btn = document.getElementById('btn-cv');
   btn.disabled = true; btn.textContent = 'Generating…';
   switchTab('cv', document.querySelector('[data-tab="cv"]'));
@@ -675,38 +505,23 @@ async function generateCV() {
   const wrap = document.getElementById('cv-content');
   wrap.style.display = 'block';
   wrap.innerHTML = `
-    <div class="output-head">
-      <div>
-        <div class="output-title">Tailored CV — ${selected.title}</div>
-        <div class="output-sub">${selected.company} · edited from your base CV for this role</div>
-      </div>
-    </div>
+    <div class="output-head"><div><div class="output-title">Tailored CV — ${selected.title}</div><div class="output-sub">${selected.company} · edited from your base CV for this role</div></div></div>
     <div class="output-box">
-      <div class="output-box-head">
-        <div class="output-box-lbl">Resume · ATS-safe plain text</div>
-        <button class="copy-btn" onclick="copyOut('cv')" id="copy-cv-btn">Copy</button>
-      </div>
-      <div class="output-body output-loading" id="cv-body">
-        <div class="spinner"></div>&nbsp; Tailoring your CV…
-      </div>
+      <div class="output-box-head"><div class="output-box-lbl">Resume · ATS-safe plain text</div><button class="copy-btn" onclick="copyOut('cv')" id="copy-cv-btn">Copy</button></div>
+      <div class="output-body output-loading" id="cv-body"><div class="spinner"></div>&nbsp; Tailoring your CV…</div>
     </div>`;
-
   const baseCV = getUserCV();
   const hasCustomCV = document.getElementById('cv-textarea').value.trim().length > 0;
-
   try {
     const prompt = `You are a senior PM resume editor who specialises in ATS optimisation.
-
-${hasCustomCV ? 'CANDIDATE\'S ACTUAL CV (edit this — do not replace it with a generic template):' : 'CANDIDATE PROFILE (build a resume from this):'}
+${hasCustomCV ? "CANDIDATE'S ACTUAL CV (edit this — do not replace it with a generic template):" : 'CANDIDATE PROFILE (build a resume from this):'}
 ${baseCV}
-
 TARGET ROLE:
 Title: ${selected.title}
 Company: ${selected.company}
 Description: ${selected.description}
 Requirements: ${selected.requirements.join('; ')}
 Tags: ${selected.tags.join(', ')}
-
 INSTRUCTIONS:
 ${hasCustomCV
   ? `Edit the candidate's actual CV above. Keep their real formatting, structure, and bullet points — only make targeted changes:
@@ -715,21 +530,12 @@ ${hasCustomCV
 - Update the summary/headline to match this role's framing
 - Adjust the skills section to prioritise keywords from this JD
 - Do NOT invent experience, metrics, or roles that aren't in the original CV`
-  : `Build a clean, ATS-optimised one-page resume. Include summary, experience with metrics, skills, education.`}
-
+  : 'Build a clean, ATS-optimised one-page resume. Include summary, experience with metrics, skills, education.'}
 Rules: No em dashes. Confident, direct, human voice. Output the full edited resume in plain text only.`;
-
-    const apiKey = getApiKey();
-    if (!apiKey) return;
     const res = await fetch('https://api.anthropic.com/v1/messages', {
-      method:'POST',
-      headers:{
-        'Content-Type':'application/json',
-        'x-api-key': apiKey,
-        'anthropic-version': '2023-06-01',
-        'anthropic-dangerous-direct-browser-access': 'true'
-      },
-      body: JSON.stringify({ model:'claude-sonnet-4-20250514', max_tokens:1200, messages:[{role:'user',content:prompt}] })
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'x-api-key': apiKey, 'anthropic-version': '2023-06-01', 'anthropic-dangerous-direct-browser-access': 'true' },
+      body: JSON.stringify({ model: 'claude-sonnet-4-5-20250514', max_tokens: 1200, messages: [{ role: 'user', content: prompt }] })
     });
     const data = await res.json();
     if (data.error) throw new Error(data.error.message);
@@ -744,12 +550,10 @@ Rules: No em dashes. Confident, direct, human voice. Output the full edited resu
   btn.disabled = false; btn.textContent = '✨ Generate CV';
 }
 
-// ── GENERATE COVER LETTER ─────────────────────────────────────────────────
 async function generateCover() {
-  if (!selected) {
-    alert('Please select a role from the left first.');
-    return;
-  }
+  if (!selected) { alert('Please select a role from the left first.'); return; }
+  const apiKey = getApiKey();
+  if (!apiKey) { showApiKeyModal(); return; }
   const btn = document.getElementById('btn-cover');
   btn.disabled = true; btn.textContent = 'Generating…';
   switchTab('cover', document.querySelector('[data-tab="cover"]'));
@@ -757,52 +561,29 @@ async function generateCover() {
   const wrap = document.getElementById('cover-content');
   wrap.style.display = 'block';
   wrap.innerHTML = `
-    <div class="output-head">
-      <div>
-        <div class="output-title">Cover Letter — ${selected.title}</div>
-        <div class="output-sub">${selected.company} · tailored to this role</div>
-      </div>
-    </div>
+    <div class="output-head"><div><div class="output-title">Cover Letter — ${selected.title}</div><div class="output-sub">${selected.company} · tailored to this role</div></div></div>
     <div class="output-box">
-      <div class="output-box-head">
-        <div class="output-box-lbl">Cover Letter · Ready to send</div>
-        <button class="copy-btn" onclick="copyOut('cover')">Copy</button>
-      </div>
-      <div class="output-body output-loading" id="cover-body">
-        <div class="spinner"></div>&nbsp; Writing your cover letter…
-      </div>
+      <div class="output-box-head"><div class="output-box-lbl">Cover Letter · Ready to send</div><button class="copy-btn" onclick="copyOut('cover')">Copy</button></div>
+      <div class="output-body output-loading" id="cover-body"><div class="spinner"></div>&nbsp; Writing your cover letter…</div>
     </div>`;
-
   try {
     const prompt = `You are a senior PM career coach who writes sharp, human cover letters that get callbacks.
-
 CANDIDATE PROFILE:
 ${getUserCV()}
-
 TARGET ROLE:
 Title: ${selected.title}
 Company: ${selected.company}
 Description: ${selected.description}
 Requirements: ${selected.requirements.join('; ')}
-
 Write a concise cover letter (3 short paragraphs, under 280 words):
 1. Opening — hook with the most compelling match. No "I am excited to apply" openers.
-2. Body — specific evidence from her experience mapping directly to this role. Real metrics. Connect her work to what this company is building.
+2. Body — specific evidence from her experience mapping directly to this role. Real metrics.
 3. Close — short and direct. Signal genuine interest in this company specifically.
-
 Rules: No em dashes. Conversational and specific, not corporate. Under 280 words. Start with "Dear Hiring Team," and output letter text only.`;
-
-    const apiKey2 = getApiKey();
-    if (!apiKey2) return;
     const res = await fetch('https://api.anthropic.com/v1/messages', {
-      method:'POST',
-      headers:{
-        'Content-Type':'application/json',
-        'x-api-key': apiKey2,
-        'anthropic-version': '2023-06-01',
-        'anthropic-dangerous-direct-browser-access': 'true'
-      },
-      body: JSON.stringify({ model:'claude-sonnet-4-20250514', max_tokens:600, messages:[{role:'user',content:prompt}] })
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'x-api-key': apiKey, 'anthropic-version': '2023-06-01', 'anthropic-dangerous-direct-browser-access': 'true' },
+      body: JSON.stringify({ model: 'claude-sonnet-4-5-20250514', max_tokens: 600, messages: [{ role: 'user', content: prompt }] })
     });
     const data = await res.json();
     if (data.error) throw new Error(data.error.message);
@@ -817,26 +598,19 @@ Rules: No em dashes. Conversational and specific, not corporate. Under 280 words
   btn.disabled = false; btn.textContent = '✉️ Cover Letter';
 }
 
-// ── HELPERS ───────────────────────────────────────────────────────────────
 function streamText(el, text, done) {
   let i = 0;
   const iv = setInterval(() => {
-    if (i < text.length) { el.textContent += text[i++]; el.closest('.output-body,.cv-body').scrollTop = 99999; }
-    else { clearInterval(iv); if(done) done(); }
+    if (i < text.length) { el.textContent += text[i++]; const ob = el.closest('.output-body'); if (ob) ob.scrollTop = 99999; }
+    else { clearInterval(iv); if (done) done(); }
   }, 5);
 }
-
 function copyOut(which) {
-  const text = which==='cv' ? cvText : coverText;
-  navigator.clipboard.writeText(text).then(() => {
-    const btn = document.getElementById('copy-cv-btn') || document.querySelector('.copy-btn');
-    const allBtns = document.querySelectorAll('.copy-btn');
-    allBtns.forEach(b => { b.textContent='Copied!'; setTimeout(()=>b.textContent='Copy',2000); });
+  navigator.clipboard.writeText(which==='cv' ? cvText : coverText).then(() => {
+    document.querySelectorAll('.copy-btn').forEach(b => { b.textContent='Copied!'; setTimeout(()=>b.textContent='Copy',2000); });
   });
 }
-
-function applyNow() { if(selected?.url) window.open(selected.url,'_blank'); }
-
+function applyNow() { if (selected?.url) window.open(selected.url, '_blank'); }
 function filterJobs() {
   const q = document.getElementById('search-input').value.toLowerCase();
   let res = JOBS.filter(j => {
@@ -846,42 +620,22 @@ function filterJobs() {
     if (activeFilter==='ai') return j.isAI;
     return true;
   });
-  if(q) res = res.filter(j => j.title.toLowerCase().includes(q)||j.company.toLowerCase().includes(q)||j.tags.some(t=>t.toLowerCase().includes(q)));
+  if (q) res = res.filter(j => j.title.toLowerCase().includes(q)||j.company.toLowerCase().includes(q)||j.tags.some(t=>t.toLowerCase().includes(q)));
   renderJobList(res);
 }
-
-function setFilter(f, el) {
-  activeFilter = f;
-  document.querySelectorAll('.fpill').forEach(p => p.classList.remove('on'));
-  el.classList.add('on');
-  filterJobs();
-}
-
+function setFilter(f, el) { activeFilter = f; document.querySelectorAll('.fpill').forEach(p => p.classList.remove('on')); el.classList.add('on'); filterJobs(); }
 function refreshJobs() {
   document.getElementById('job-list').innerHTML = `<div class="list-loading"><div class="spinner"></div><div class="list-loading-text">Scanning for new roles…</div></div>`;
-  setTimeout(() => {
-    renderJobList(JOBS);
-    document.getElementById('job-count').textContent = JOBS.length;
-    document.getElementById('new-chip').textContent = JOBS.filter(j=>j.isNew).length + ' new today';
-  }, 1200);
+  setTimeout(() => { renderJobList(JOBS); document.getElementById('job-count').textContent = JOBS.length; document.getElementById('new-chip').textContent = JOBS.filter(j=>j.isNew).length + ' new today'; }, 1200);
 }
-
-function saveSetup(btn) {
-  btn.textContent='✓ Saved';
-  btn.style.background='var(--accent)';
-  setTimeout(()=>{btn.textContent='Save & Activate';btn.style.background='';},2500);
-}
-
+function saveSetup(btn) { btn.textContent='✓ Saved'; btn.style.background='var(--accent)'; setTimeout(()=>{btn.textContent='Save & Activate';btn.style.background='';},2500); }
 init();
 </script>
-
 <!-- API KEY MODAL -->
 <div id="api-modal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:1000;align-items:center;justify-content:center;backdrop-filter:blur(2px)">
   <div style="background:var(--white);border-radius:14px;padding:28px 32px;max-width:460px;width:90%;box-shadow:0 20px 60px rgba(0,0,0,.2)">
     <div style="font-family:'Instrument Serif',serif;font-size:20px;color:var(--ink);margin-bottom:6px">Anthropic API Key Required</div>
-    <div style="font-size:13px;color:var(--ink-3);line-height:1.6;margin-bottom:20px">
-      To generate tailored CVs and cover letters, paste your Anthropic API key below. It's stored only in your browser — never sent anywhere except directly to Anthropic's API.
-    </div>
+    <div style="font-size:13px;color:var(--ink-3);line-height:1.6;margin-bottom:20px">To generate tailored CVs and cover letters, paste your Anthropic API key below. It's stored only in your browser — never sent anywhere except directly to Anthropic's API.</div>
     <div style="margin-bottom:8px">
       <input id="api-key-input" type="password" placeholder="sk-ant-api03-..." style="width:100%;padding:10px 12px;border:1px solid var(--rule);border-radius:var(--r-sm);font-family:'JetBrains Mono',monospace;font-size:13px;outline:none;color:var(--ink);background:var(--off-white)">
     </div>
@@ -890,9 +644,7 @@ init();
       <button class="btn btn-primary" onclick="saveApiKey()" style="flex:1;justify-content:center">Save Key &amp; Continue</button>
       <button class="btn btn-ghost" onclick="document.getElementById('api-modal').style.display='none'">Cancel</button>
     </div>
-    <div style="font-size:11px;color:var(--ink-4);line-height:1.5">
-      Get your key at <a href="https://console.anthropic.com/keys" target="_blank" style="color:var(--accent)">console.anthropic.com/keys</a>. Your key is saved in localStorage and never leaves your browser except in direct API calls to Anthropic.
-    </div>
+    <div style="font-size:11px;color:var(--ink-4);line-height:1.5">Get your key at <a href="https://console.anthropic.com/keys" target="_blank" style="color:var(--accent)">console.anthropic.com/keys</a>. Saved in localStorage only.</div>
   </div>
 </div>
 </body>
