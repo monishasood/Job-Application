@@ -375,6 +375,21 @@ Jan 2023 – Present
             </div>
           </div>
 
+          <div class="setup-sec">
+            <div class="setup-sec-title">Anthropic API Key</div>
+            <div class="cfg-table">
+              <div class="cfg-row">
+                <div class="cfg-key">Key status</div>
+                <div class="cfg-right">
+                  <div class="cfg-val" id="key-status">Checking…</div>
+                  <button class="btn btn-secondary btn-sm" onclick="showApiKeyModal()">Update Key</button>
+                  <button class="btn btn-ghost btn-sm" onclick="clearApiKey()">Clear</button>
+                </div>
+              </div>
+            </div>
+            <div style="font-size:12px;color:var(--ink-4);margin-top:8px;line-height:1.5">Your key is stored in your browser only. Get one at <a href="https://console.anthropic.com/keys" target="_blank" style="color:var(--accent)">console.anthropic.com/keys</a>.</div>
+          </div>
+
           <button class="btn btn-primary btn-lg" style="width:100%;justify-content:center" onclick="saveSetup(this)">Save &amp; Activate</button>
         </div>
       </div>
@@ -456,6 +471,52 @@ let cvText = '';
 let coverText = '';
 let saveTimer = null;
 
+
+// ── API KEY MANAGEMENT ────────────────────────────────────────────────────
+function getApiKey() {
+  let key = localStorage.getItem('pm_radar_api_key');
+  if (!key) {
+    showApiKeyModal();
+    return null;
+  }
+  return key;
+}
+
+function showApiKeyModal() {
+  document.getElementById('api-modal').style.display = 'flex';
+}
+
+function saveApiKey() {
+  const val = document.getElementById('api-key-input').value.trim();
+  if (!val.startsWith('sk-ant-')) {
+    document.getElementById('api-key-error').style.display = 'block';
+    return;
+  }
+  localStorage.setItem('pm_radar_api_key', val);
+  document.getElementById('api-modal').style.display = 'none';
+  document.getElementById('key-status').textContent = 'API key saved ✓';
+  document.getElementById('key-status').style.color = 'var(--accent)';
+}
+
+function clearApiKey() {
+  localStorage.removeItem('pm_radar_api_key');
+  document.getElementById('api-key-input').value = '';
+  document.getElementById('key-status').textContent = 'No key saved';
+  document.getElementById('key-status').style.color = 'var(--ink-4)';
+}
+
+function checkKeyStatus() {
+  const key = localStorage.getItem('pm_radar_api_key');
+  const el = document.getElementById('key-status');
+  if (el) {
+    el.textContent = key ? 'API key saved ✓' : 'No key saved';
+    el.style.color = key ? 'var(--accent)' : 'var(--ink-4)';
+  }
+  if (key) {
+    document.getElementById('api-modal').style.display = 'none';
+  }
+}
+
 // ── CV STORAGE ────────────────────────────────────────────────────────────
 function loadStoredCV() {
   try {
@@ -500,6 +561,7 @@ function getUserCV() {
 // ── INIT ──────────────────────────────────────────────────────────────────
 function init() {
   loadStoredCV();
+  checkKeyStatus();
   setTimeout(() => {
     renderJobList(JOBS);
     document.getElementById('job-count').textContent = JOBS.length;
@@ -657,11 +719,20 @@ ${hasCustomCV
 
 Rules: No em dashes. Confident, direct, human voice. Output the full edited resume in plain text only.`;
 
+    const apiKey = getApiKey();
+    if (!apiKey) return;
     const res = await fetch('https://api.anthropic.com/v1/messages', {
-      method:'POST', headers:{'Content-Type':'application/json'},
+      method:'POST',
+      headers:{
+        'Content-Type':'application/json',
+        'x-api-key': apiKey,
+        'anthropic-version': '2023-06-01',
+        'anthropic-dangerous-direct-browser-access': 'true'
+      },
       body: JSON.stringify({ model:'claude-sonnet-4-20250514', max_tokens:1200, messages:[{role:'user',content:prompt}] })
     });
     const data = await res.json();
+    if (data.error) throw new Error(data.error.message);
     cvText = data.content?.[0]?.text || 'Error generating — please try again.';
     const body = document.getElementById('cv-body');
     body.classList.remove('output-loading');
@@ -721,11 +792,20 @@ Write a concise cover letter (3 short paragraphs, under 280 words):
 
 Rules: No em dashes. Conversational and specific, not corporate. Under 280 words. Start with "Dear Hiring Team," and output letter text only.`;
 
+    const apiKey2 = getApiKey();
+    if (!apiKey2) return;
     const res = await fetch('https://api.anthropic.com/v1/messages', {
-      method:'POST', headers:{'Content-Type':'application/json'},
+      method:'POST',
+      headers:{
+        'Content-Type':'application/json',
+        'x-api-key': apiKey2,
+        'anthropic-version': '2023-06-01',
+        'anthropic-dangerous-direct-browser-access': 'true'
+      },
       body: JSON.stringify({ model:'claude-sonnet-4-20250514', max_tokens:600, messages:[{role:'user',content:prompt}] })
     });
     const data = await res.json();
+    if (data.error) throw new Error(data.error.message);
     coverText = data.content?.[0]?.text || 'Error — please try again.';
     const body = document.getElementById('cover-body');
     body.classList.remove('output-loading');
@@ -794,5 +874,26 @@ function saveSetup(btn) {
 
 init();
 </script>
+
+<!-- API KEY MODAL -->
+<div id="api-modal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:1000;align-items:center;justify-content:center;backdrop-filter:blur(2px)">
+  <div style="background:var(--white);border-radius:14px;padding:28px 32px;max-width:460px;width:90%;box-shadow:0 20px 60px rgba(0,0,0,.2)">
+    <div style="font-family:'Instrument Serif',serif;font-size:20px;color:var(--ink);margin-bottom:6px">Anthropic API Key Required</div>
+    <div style="font-size:13px;color:var(--ink-3);line-height:1.6;margin-bottom:20px">
+      To generate tailored CVs and cover letters, paste your Anthropic API key below. It's stored only in your browser — never sent anywhere except directly to Anthropic's API.
+    </div>
+    <div style="margin-bottom:8px">
+      <input id="api-key-input" type="password" placeholder="sk-ant-api03-..." style="width:100%;padding:10px 12px;border:1px solid var(--rule);border-radius:var(--r-sm);font-family:'JetBrains Mono',monospace;font-size:13px;outline:none;color:var(--ink);background:var(--off-white)">
+    </div>
+    <div id="api-key-error" style="display:none;font-size:12px;color:var(--red);margin-bottom:8px">Key should start with sk-ant-</div>
+    <div style="display:flex;gap:8px;align-items:center;margin-bottom:16px">
+      <button class="btn btn-primary" onclick="saveApiKey()" style="flex:1;justify-content:center">Save Key &amp; Continue</button>
+      <button class="btn btn-ghost" onclick="document.getElementById('api-modal').style.display='none'">Cancel</button>
+    </div>
+    <div style="font-size:11px;color:var(--ink-4);line-height:1.5">
+      Get your key at <a href="https://console.anthropic.com/keys" target="_blank" style="color:var(--accent)">console.anthropic.com/keys</a>. Your key is saved in localStorage and never leaves your browser except in direct API calls to Anthropic.
+    </div>
+  </div>
+</div>
 </body>
 </html>
